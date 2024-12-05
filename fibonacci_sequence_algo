@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Function to calculate Fibonacci number using recursion
+fibonacci() {
+    n=$1
+    if (( n == 0 )); then
+        echo 0
+    elif (( n == 1 )); then
+        echo 1
+    else
+        prev1=$(fibonacci $((n - 1)))
+        prev2=$(fibonacci $((n - 2)))
+        echo $((prev1 + prev2))
+    fi
+}
+
+# Prompt the user for input
+read -p "Enter the position of Fibonacci number (n): " n
+result=$(fibonacci $n)
+echo "The $n-th Fibonacci number is: $result"

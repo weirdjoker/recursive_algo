@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Function to advise on clothing based on temperature and rain
+weather_advice() {
+    temperature=$1
+    raining=$2
+
+    if (( temperature < 50 )); then
+        echo "It's cold. Wear a jacket."
+    elif (( temperature >= 50 && temperature <= 70 )); then
+        echo "The weather is mild. Wear a sweater or a light jacket."
+    else
+        echo "It's warm. You can wear lighter clothing."
+    fi
+
+    if [[ $raining == "yes" ]]; then
+        echo "Don't forget an umbrella!"
+    fi
+}
+
+# Prompt the user for input
+read -p "Enter the current temperature: " temperature
+read -p "Is it raining (yes/no)? " raining
+weather_advice $temperature $raining

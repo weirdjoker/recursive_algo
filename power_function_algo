@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Function to calculate power of a number using recursion
+power_function() {
+    base=$1
+    exponent=$2
+    if (( exponent == 0 )); then
+        echo 1
+    else
+        prev_result=$(power_function $base $((exponent - 1)))
+        echo $((base * prev_result))
+    fi
+}
+
+# Prompt the user for input
+read -p "Enter the base number: " base
+read -p "Enter the exponent: " exponent
+result=$(power_function $base $exponent)
+echo "$base raised to the power of $exponent is: $result"
